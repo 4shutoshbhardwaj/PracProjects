@@ -42,21 +42,6 @@ const tdStyleH={
   fontSize:"20px"
 }
 
-const tdStyle={
-  border:"1px solid #cecece",
-  padding:10,
-  margin:10
-}
-
-const rentBut={
-  padding:"5px 10px",
-  backgroundColor:"lightblue",
-  color:"blue",
-  border:"1px solid blue",
-  borderRadius:"4px",
-  cursor:"pointer"
-}
-
 const AddBut={
   display:"block",
   margin:"50px auto",
@@ -107,7 +92,7 @@ const Home = () => {
 
   useEffect(() => {
     getData().then((res)=>setData(res));
-  }, [t,rent,rentACar,deleteCar])
+  }, [rent,rentACar,deleteCar])
   
 
   return (
@@ -127,6 +112,7 @@ const Home = () => {
             <td style={tdStyleH}>Owner Name</td>
             <td style={tdStyleH}>Rent</td>
             <td style={tdStyleH}>Delete</td>
+            <td style={tdStyleH}>Re-Write</td>
           </tr>
         </thead>
         <tbody>

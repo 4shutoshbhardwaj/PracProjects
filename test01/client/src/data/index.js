@@ -5,7 +5,6 @@ const url=`http://localhost:9090`;
 export const getData=async()=>{
     try {
         const data=await axios.get(`${url}/`)
-        console.log(data.data);
         return data.data;
     } catch (err) {
         console.log(err);
@@ -28,10 +27,26 @@ export const addToRent=async(id)=>{
     }
 }
 
-
 export const deleteACar=async(id)=>{
     try {
         await axios.delete(`${url}/delete/${id}`);
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+export const getCar=async(id)=>{
+    try {
+        const data=await axios.get(`${url}/${id}`);
+        return data.data
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+export const updateCar=async(data,id)=>{
+    try {
+        await axios.put(`${url}/${id}`,data);
     } catch (err) {
         console.log(err);
     }
