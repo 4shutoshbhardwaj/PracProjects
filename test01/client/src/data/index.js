@@ -27,3 +27,12 @@ export const addToRent=async(id)=>{
         console.log(err);
     }
 }
+
+
+export const deleteACar=async(id)=>{
+    try {
+        await axios.delete(`${url}/delete/${id}`);
+    } catch (err) {
+        console.log(err);
+    }
+}

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const List = ({el,rentACar,setT}) => {
+const List = ({el,rentACar,deleteCar}) => {
 
     const tdStyle={
       border:"1px solid #cecece",
@@ -16,6 +16,15 @@ const List = ({el,rentACar,setT}) => {
       borderRadius:"4px",
       cursor:"pointer"
     }
+    
+    const deleteBut={
+      padding:"5px 10px",
+      backgroundColor:"pink",
+      color:"red",
+      border:"1px solid red",
+      borderRadius:"4px",
+      cursor:"pointer"
+    }
 
   return (
     <tr>
@@ -24,6 +33,7 @@ const List = ({el,rentACar,setT}) => {
       <td style={tdStyle}>{el.carNumber}</td>
       <td style={tdStyle}>{el.ownerName}</td>
       <td style={tdStyle}><button style={rentBut} onClick={()=>rentACar(el._id)}>{el.rented?"Unrent":"Rent"}</button></td>
+      <td style={tdStyle}><button style={deleteBut} onClick={()=>deleteCar(el._id)}>Delete</button></td>
     </tr>
   )
 }

@@ -3,6 +3,7 @@ import carAni from '../images/carAni.gif';
 import {Link} from 'react-router-dom'
 import { addToRent, getData } from '../data/index';
 import List from './List';
+import { deleteACar } from '../data/index';
 
 const ImageAni={
     width:'80%'
@@ -98,10 +99,15 @@ const Home = () => {
     // setT(prevState=>!prevState);
     await addToRent(id);
   }
+  
+  const deleteCar=async(id)=>{
+    // setT(prevState=>!prevState);
+    await deleteACar(id);
+  }
 
   useEffect(() => {
     getData().then((res)=>setData(res));
-  }, [t,rent,rentACar])
+  }, [t,rent,rentACar,deleteCar])
   
 
   return (
@@ -120,15 +126,16 @@ const Home = () => {
             <td style={tdStyleH}>Car Number</td>
             <td style={tdStyleH}>Owner Name</td>
             <td style={tdStyleH}>Rent</td>
+            <td style={tdStyleH}>Delete</td>
           </tr>
         </thead>
         <tbody>
           {
             data.length>0&&data.map(el=>{
               if(el.rented==false&&!rent){
-                return <List el={el} rentACar={rentACar}  key={el._id} setT={setT}/>
+                return <List el={el} rentACar={rentACar}  key={el._id} deleteCar={deleteCar}/>
               }else if(el.rented==true&&rent){
-                return <List el={el} rentACar={rentACar}  key={el._id} setT={setT}/>
+                return <List el={el} rentACar={rentACar}  key={el._id} deleteCar={deleteCar}/>
               }
             })
           }
