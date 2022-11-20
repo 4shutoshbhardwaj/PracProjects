@@ -111,6 +111,7 @@ const Home = () => {
       <Link to={`/add`} style={AddBut}>Add Car for Rent</Link>
       <button style={rentalButtonStyle1} onClick={()=>setRent(prevState=>!prevState)}>Available For Rent</button>
       <button style={rentalButtonStyle2} onClick={()=>setRent(prevState=>!prevState)}>Rented Cars</button>
+      <h2 style={{color:rent?"red":"green"}}>{rent?"Already Rented cars":"Unrented cars"}</h2>
       <table style={tableStyle}>
         <thead>
           <tr>
